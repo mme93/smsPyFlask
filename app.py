@@ -1,5 +1,4 @@
 from flask import Flask
-import serial
 import GSM
 
 app = Flask(__name__)
@@ -13,6 +12,7 @@ def hello_world():  # put application's code here
 @app.route('/isReady')
 def isSIMReady():
     ser = GSM.createSerial()
+    print(ser.is_open)
     if GSM.openSerialPort(ser):
         print(ser.is_open)
         return 'Is Ready'
