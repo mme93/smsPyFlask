@@ -15,7 +15,7 @@ def isSIMReady():
     print(ser.is_open)
     if GSM.openSerialPort(ser):
         print(ser.is_open)
-        return 'Is Ready'
+        return GSM.checkATStatus(ser)
     else:
         return 'Can´t open Serial Port'
 
