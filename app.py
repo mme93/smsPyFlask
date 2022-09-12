@@ -1,18 +1,22 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 import GSM
 
 app = Flask(__name__)
 
-@app.route('/test/<name>')
-def test(name):
-    print(name)
-    return name
 
-@app.route('/SMS')
-def send_sms():  # put application's code here
+@app.route('/test', methods=['Post'])
+def test():
+    phoneNumber = request.json['phone']
+    msg = request.json['msg']
+    return request.json['mytext'];
+
+
+@app.route('/SMS', methods=['Post'])
+def send_sms():
     ser = GSM.createSerial()
     if GSM.openSerialPort(ser):
-        GSM.send_sms(ser)
+        GSM.test_sms(ser, request.json['phone'], request.json['msg'])
+        #GSM.send_sms(ser)
         ser.close()
     return 'Hello World!'
 
@@ -21,10 +25,10 @@ def send_sms():  # put application's code here
 def isSIMReady():
     ser = GSM.createSerial()
     if GSM.openSerialPort(ser):
-        #GSM.setVerboseErrorRep(ser)
-        #GSM.checkATStatus(ser)
-        #GSM.isCPIN(ser)
-        #GSM.setPIN(ser)
+        # GSM.setVerboseErrorRep(ser)
+        # GSM.checkATStatus(ser)
+        # GSM.isCPIN(ser)
+        # GSM.setPIN(ser)
         GSM.isCPIN(ser)
         ser.close()
         return 'Okay'

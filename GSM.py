@@ -3,7 +3,11 @@ import time
 import serial
 
 recipient = "+4915734696774"
-message = "ICh liebe mein Schatz!"
+message = "Ich liebe mein Schatz!"
+
+def test_sms(ser,phone, msg):
+    print(phone)
+    print(msg)
 
 def send_sms(ser):
     ser.write(b'AT+CMGF=1\r')
