@@ -27,4 +27,11 @@ def checkATStatus(ser):
     while myline:
         print(myline)
         myline = ser.readline()
-    return myline
+
+def isCPIN(ser):
+    ser.write(b'AT+CPIN?\r')
+    time.sleep(1)
+    myline = ser.readline()
+    while myline:
+        print(myline)
+        myline = ser.readline()
