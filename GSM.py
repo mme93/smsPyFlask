@@ -27,4 +27,4 @@ def checkATStatus(ser):
     while myline:
         print(myline)
         myline = ser.readline()
-    return 'Test'
+    return myline
