@@ -9,6 +9,7 @@ def send_sms():  # put application's code here
     ser = GSM.createSerial()
     if GSM.openSerialPort(ser):
         GSM.send_sms(ser)
+        ser.close()
     return 'Hello World!'
 
 

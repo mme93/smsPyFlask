@@ -2,18 +2,17 @@ import time
 
 import serial
 
+recipient = "+4917684582550"
+message = "Hello, World!"
+
 def send_sms(ser):
     ser.write(b'AT+CMGF=1\r')
-    time.sleep(1)
-    myline = ser.readline()
-    while myline:
-        print(myline)
-        myline = ser.readline()
-    ser.write(b'AT+CMGS="+4917684582550"\r')
-    ser.write(chr(26))
-    ser.write(b'Ich bin eine SMS\r')
-    ser.write(chr(26))
-    time.sleep(1)
+    time.sleep(0.5)
+    ser.write(b'AT+CMGS="' + recipient.encode() + b'"\r')
+    time.sleep(0.5)
+    ser.write(message.encode() + b"\r")
+    time.sleep(0.5)
+    ser.write(bytes([26]))
     myline = ser.readline()
     while myline:
         print(myline)
