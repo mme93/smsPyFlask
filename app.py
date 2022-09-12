@@ -25,6 +25,7 @@ def initGSM():
         ser.close()
         return 'Can´t open Serial Port and init GSM'
 
+
 @app.route('/at/status')
 def check_at_status():
     ser = GSM.createSerial()
@@ -35,6 +36,7 @@ def check_at_status():
     else:
         ser.close()
         return 'Can´t open Serial Port'
+
 
 @app.route('/isSIMReady')
 def isSIMReady():
