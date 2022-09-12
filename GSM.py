@@ -22,8 +22,9 @@ def openSerialPort(ser):
 # Check AT Status from GSM-Module
 def checkATStatus(ser):
     ser.write(b'AT\r')
-    time.sleep(2)
+    time.sleep(1)
     myline = ser.readline()
     while myline:
         print(myline)
+        myline = ser.readline()
     return 'Test'
