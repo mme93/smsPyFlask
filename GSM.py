@@ -10,7 +10,9 @@ def send_sms(ser):
         print(myline)
         myline = ser.readline()
     ser.write(b'AT+CMGS="+4917684582550"\r')
+    ser.write(chr(26))
     ser.write(b'Ich bin eine SMS\r')
+    ser.write(chr(26))
     time.sleep(1)
     myline = ser.readline()
     while myline:
