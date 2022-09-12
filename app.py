@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/test/<name>')
 def test(name):
+    print(name)
     return name
 
 @app.route('/SMS')
