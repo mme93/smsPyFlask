@@ -2,6 +2,21 @@ import time
 
 import serial
 
+def send_sms(ser):
+    ser.write(b'AT+CMGF=1\r')
+    time.sleep(1)
+    myline = ser.readline()
+    while myline:
+        print(myline)
+        myline = ser.readline()
+    ser.write(b'AT+CMGS="+4917684582550"\r')
+    ser.write(b'Ich bin eine SMS\r')
+    time.sleep(1)
+    myline = ser.readline()
+    while myline:
+        print(myline)
+        myline = ser.readline()
+
 
 # Create a Serial Port for GSM-Module
 def createSerial():

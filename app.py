@@ -4,8 +4,11 @@ import GSM
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():  # put application's code here
+@app.route('/SMS')
+def send_sms():  # put application's code here
+    ser = GSM.createSerial()
+    if GSM.openSerialPort(ser):
+        GSM.send_sms()
     return 'Hello World!'
 
 
