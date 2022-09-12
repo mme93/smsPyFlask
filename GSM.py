@@ -23,4 +23,4 @@ def openSerialPort(ser):
 def checkATStatus(ser):
     ser.write(b'AT\r')
     time.sleep(2)
-    return ser.readline()
+    return ser.readlines()
