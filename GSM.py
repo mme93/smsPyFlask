@@ -41,7 +41,15 @@ def setVerboseErrorRep(ser):
 
 # Check is PIN activated
 def isCPIN(ser):
-    ser.write(b'AT+CPIN=[,]\r')
+    ser.write(b'AT+CPIN?\r')
+    time.sleep(1)
+    myline = ser.readline()
+    while myline:
+        print(myline)
+        myline = ser.readline()
+
+def setPIN(ser):
+    ser.write(b'AT+CPIN=5511\r')
     time.sleep(1)
     myline = ser.readline()
     while myline:

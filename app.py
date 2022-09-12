@@ -13,8 +13,10 @@ def hello_world():  # put application's code here
 def isSIMReady():
     ser = GSM.createSerial()
     if GSM.openSerialPort(ser):
-        GSM.setVerboseErrorRep(ser)
-        GSM.checkATStatus(ser)
+        #GSM.setVerboseErrorRep(ser)
+        #GSM.checkATStatus(ser)
+        GSM.isCPIN(ser)
+        GSM.setPIN(ser)
         GSM.isCPIN(ser)
         return 'Okay'
     else:
