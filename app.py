@@ -15,9 +15,9 @@ def isSIMReady():
     if GSM.openSerialPort(ser):
         #GSM.setVerboseErrorRep(ser)
         #GSM.checkATStatus(ser)
-        GSM.isCPIN(ser)
+        #GSM.isCPIN(ser)
         GSM.setPIN(ser)
-        GSM.isCPIN(ser)
+        #GSM.isCPIN(ser)
         return 'Okay'
     else:
         return 'Can´t open Serial Port'
