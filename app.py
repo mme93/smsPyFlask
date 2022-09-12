@@ -12,9 +12,8 @@ def hello_world():  # put application's code here
 @app.route('/isReady')
 def isSIMReady():
     ser = GSM.createSerial()
-    print(ser.is_open)
     if GSM.openSerialPort(ser):
-        print(ser.is_open)
+        GSM.setVerboseErrorRep(ser)
         GSM.checkATStatus(ser)
         GSM.isCPIN(ser)
         return 'Okay'
