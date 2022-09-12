@@ -14,7 +14,7 @@ def send_sms():
     ser = GSM.createSerial()
     if GSM.openSerialPort(ser):
         GSM.test_sms(ser, request.json['phone'], request.json['msg'])
-        #GSM.send_sms(ser)
+        # GSM.send_sms(ser)
         ser.close()
     return 'Hello World!'
 
@@ -36,4 +36,4 @@ def isSIMReady():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
