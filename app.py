@@ -8,7 +8,7 @@ app = Flask(__name__)
 def send_sms():  # put application's code here
     ser = GSM.createSerial()
     if GSM.openSerialPort(ser):
-        GSM.send_sms()
+        GSM.send_sms(ser)
     return 'Hello World!'
 
 
