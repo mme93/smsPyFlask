@@ -1,5 +1,11 @@
 # SMS-Service
 
+# Docker
+
+docker build -t smsservice:1.0 .      
+
+docker run --publish=5000:5000 smsservice:1.0  
+
 # Links
 
 https://www.diafaan.com/sms-tutorials/gsm-modem-tutorial/at-cmgs-text-mode/
