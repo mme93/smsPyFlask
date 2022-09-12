@@ -4,11 +4,9 @@ import GSM
 app = Flask(__name__)
 
 
-@app.route('/test', methods=['Post'])
+@app.route('/test')
 def test():
-    phoneNumber = request.json['phone']
-    msg = request.json['msg']
-    return request.json['mytext'];
+    return 'Hallo ich bin Markus'
 
 
 @app.route('/SMS', methods=['Post'])
